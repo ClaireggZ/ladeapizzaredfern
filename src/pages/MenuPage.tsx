@@ -193,6 +193,36 @@ const MenuPage = () => {
           </div>
         </div>
       )}
+
+      {/* Drinks Menu */}
+      {activeCategory === "drinks" && (
+        <div className="max-w-2xl mx-auto animate-fade-in">
+          <h2 className="font-serif text-2xl font-semibold text-foreground text-center mb-6">
+            Drinks
+          </h2>
+          <div className="space-y-8">
+            {drinksMenu.map((category) => (
+              <div key={category.name}>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-3 border-b border-border/50 pb-2">
+                  {category.name}
+                </h3>
+                <div className="space-y-3">
+                  {category.items.map((item) => (
+                    <div key={item.name} className="bg-card/50 rounded-xl p-4 border border-border/30 flex justify-between items-center">
+                      <span className="font-serif text-lg font-semibold text-foreground">{item.name}</span>
+                      <span className="font-semibold text-foreground whitespace-nowrap">
+                        {item.priceAlt
+                          ? `$${item.price.toFixed(2)} / $${item.priceAlt.toFixed(2)}`
+                          : `$${item.price.toFixed(2)}`}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
