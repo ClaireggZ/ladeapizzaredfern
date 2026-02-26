@@ -47,7 +47,7 @@ const MenuPage = () => {
               : "bg-card text-foreground border border-border hover:bg-card/80"
           }`}
         >
-          <img src={charcuterieIcon} alt="Party Trays" className="w-10 h-10 aspect-square object-contain rounded-full" />
+          <img src={partyTraysIcon} alt="Party Trays" className="w-10 h-10 aspect-square object-contain rounded-full" />
           Party Trays
         </button>
       </div>
