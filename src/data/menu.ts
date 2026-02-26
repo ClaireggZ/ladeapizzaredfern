@@ -7,60 +7,87 @@ export interface MenuItem {
   isGlutenFree?: boolean;
   isSpecial?: boolean;
   isRecommended?: boolean;
+  isVegan?: boolean;
+  isVegetarian?: boolean;
+  hasVeganOption?: boolean;
 }
 
 export interface MenuCategory {
   name: string;
+  description?: string;
   items: MenuItem[];
 }
 
+export interface PizzaBox {
+  name: string;
+  description: string;
+  price: number;
+}
+
+export const pizzaBoxes: PizzaBox[] = [
+  { name: "Divine Delights Box", description: "4 slices, serves 2–3", price: 44.90 },
+  { name: "Divine Delights Grande Box", description: "10 slices, serves 6–8", price: 103.90 },
+];
+
 export const pizzaMenu: MenuCategory[] = [
   {
-    name: "The Tradition",
+    name: "By The Slice — Base",
+    description: "avg. 150g Base — $8.00 each",
     items: [
-      { name: "Mimosa", price: 12.90, description: "Creamy base with Mozzarella, ham, and golden egg." },
-      { name: "Bandiera", price: 14.90, description: "Fresh wild rocket, Parma prosciutto, fior di latte mozzarella, and cracked black pepper." },
-      { name: "Rossa (Vg)", price: 9.90, description: "San Marzano tomato sauce, oregano, sliced garlic, and extra virgin olive oil." },
-      { name: "Regina (V)", price: 12.90, description: "Tomato sauce, fior di latte mozzarella, and fresh basil leaves." },
-      { name: "Colosseo (Vg)", price: 12.90, description: "Sliced grilled eggplant with a mix of chili and fresh parsley." },
+      { name: "Rossa", price: 8.00, description: "Tomato sauce, oregano, garlic, extra virgin olive oil.", isVegan: true },
+      { name: "Focaccia", price: 8.00, description: "Oregano, extra virgin olive oil.", isVegan: true },
+      { name: "Olive Focaccia", price: 8.00, description: "Green olives, oregano, extra virgin olive oil.", isVegan: true },
+      { name: "Tomato Focaccia", price: 8.00, description: "Cherry tomatoes, oregano, extra virgin olive oil.", isVegan: true },
     ],
   },
   {
-    name: "The Goddess Choice",
+    name: "By The Slice — Vegan & Vegetarian",
+    description: "avg. 250g",
     items: [
-      { name: "Roma", price: 13.90, description: "Tomato sauce, crispy guanciale, Pecorino Romano DOP, and freshly ground black pepper." },
-      { name: "Principessa", price: 14.90, description: "Fior di latte mozzarella, Bologna mortadella, Puglia stracciatella cheese, and crushed pistachios." },
-      { name: "Sua Maestà", price: 14.90, description: "Signature carbonara cream, crispy guanciale, Pecorino Romano, and black pepper." },
-      { name: "Flagello", price: 13.90, description: "Fior di latte mozzarella, Pecorino and Parmesan cream, black truffle paste, and black pepper." },
+      { name: "Colosseo", price: 11.99, description: "Sliced grilled eggplant with a mix of chili and fresh parsley.", isVegan: true },
+      { name: "Regina", price: 11.99, description: "Tomato sauce, fior di latte mozzarella, and fresh basil leaves. (Vegan option available)", isVegetarian: true, hasVeganOption: true },
+      { name: "Mimosa", price: 12.99, description: "Creamy base with mozzarella, ham, and golden egg.", isVegetarian: true },
     ],
   },
   {
-    name: "The Imperial",
+    name: "By The Slice — Red Base",
     items: [
-      { name: "Nobile", price: 13.90, description: "An elegant, full-bodied pizza layered with rich flavors and a refined, noble finish in every bite." },
-      { name: "Flavia (V)", price: 13.90, description: "Tomato sauce, Puglia stracciatella, red and yellow cherry tomatoes, olives, and basil." },
-      { name: "Apollo", price: 13.90, description: "Red peppers, red onions, pulled chicken, fresh thyme, and salted ricotta." },
-      { name: "Inferno", price: 14.90, description: "Red pepper cream, fior di latte mozzarella, spicy salami, and fresh coriander." },
+      { name: "Roma", price: 12.99, description: "Tomato sauce, crispy guanciale, Pecorino Romano DOP, and freshly ground black pepper." },
+      { name: "Italia", price: 12.90, description: "Tomato sauce, stracciatella, cherry tomatoes, anchovies, pesto." },
+      { name: "Imperatore", price: 12.90, description: "Tomato sauce, spinach, parmesan, prosciutto." },
+      { name: "Flavia", price: 12.99, description: "Tomato sauce, Puglia stracciatella, red and yellow cherry tomatoes, olives, and basil.", isVegetarian: true },
     ],
   },
   {
-    name: "The Divine",
+    name: "By The Slice — White Base",
     items: [
-      { name: "Imperia", price: 13.90, description: "Sliced grilled eggplant, crispy stretched pancetta, and a mix of parsley and chili." },
-      { name: "Flora", price: 13.90, description: "Fior di latte mozzarella, sautéed mushrooms, Italian sausage, and fresh parsley." },
-      { name: "Virtuosa", price: 13.90, description: "Fior di latte mozzarella, high-quality cooked ham, and sliced button mushrooms." },
+      { name: "Nobile", price: 12.99, description: "An elegant, full-bodied pizza layered with rich flavors and a refined, noble finish in every bite." },
+      { name: "Flagello", price: 12.99, description: "Fior di latte mozzarella, Pecorino and Parmesan cream, black truffle paste, and black pepper.", isVegetarian: true },
+      { name: "Imperia", price: 12.99, description: "Sliced grilled eggplant, crispy stretched pancetta, and a mix of parsley and chili." },
+      { name: "Inferno", price: 12.99, description: "Red pepper cream, fior di latte mozzarella, spicy salami, and fresh coriander." },
+      { name: "Virtuosa", price: 12.99, description: "Fior di latte mozzarella, high-quality cooked ham, and sliced button mushrooms." },
+      { name: "Flora", price: 12.99, description: "Fior di latte mozzarella, sautéed mushrooms, Italian sausage, and fresh parsley." },
     ],
   },
   {
-    name: "The Sea",
+    name: "By The Slice — The Divine",
     items: [
-      { name: "Poseidone", price: 14.90, description: "Crowned with briny ocean flavors and rich mozzarella." },
-      { name: "Nettuno", price: 13.90, description: "Tomato sauce, gourmet mayonnaise, iceberg lettuce, smoked salmon, and black sesame seeds." },
-      { name: "Marina", price: 13.90, description: "Tomato sauce, gourmet mayonnaise, iceberg lettuce, cherry tomatoes, baby prawns, and fresh parsley." },
-      { name: "Sirena", price: 13.90, description: "Tomato sauce, fresh sardines, red cherry tomatoes, and a mix of parsley and chili." },
+      { name: "Bandiera", price: 12.99, description: "Fresh wild rocket, Parma prosciutto, fior di latte mozzarella, and cracked black pepper." },
+      { name: "Principessa", price: 12.99, description: "Fior di latte mozzarella, Bologna mortadella, Puglia stracciatella cheese, and crushed pistachios." },
+      { name: "Sua Maestà", price: 12.99, description: "Signature carbonara cream, crispy guanciale, Pecorino Romano, and black pepper." },
+      { name: "Apollo", price: 12.99, description: "Red peppers, red onions, pulled chicken, fresh thyme, and salted ricotta." },
+    ],
+  },
+  {
+    name: "By The Slice — The Sea",
+    items: [
+      { name: "Marina", price: 12.99, description: "Tomato sauce, gourmet mayonnaise, iceberg lettuce, cherry tomatoes, baby prawns, and fresh parsley." },
+      { name: "Sirena", price: 12.99, description: "Tomato sauce, fresh sardines, red cherry tomatoes, and a mix of parsley and chili." },
     ],
   },
 ];
+
+export const pizzaNote = "Vegan option (VO) available on selected pizzas. Gluten-free + $2/slice. Note: Cross-contamination may occur due to shared equipment.";
 
 export const dolciMenu: MenuItem[] = [
   { name: "Tiramisù Classico", price: 15.90, description: "Lavazza espresso-dipped ladyfingers, mascarpone, cocoa powder.", isGlutenFree: true, isRecommended: true },
