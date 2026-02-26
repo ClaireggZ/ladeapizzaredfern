@@ -95,21 +95,24 @@ const MenuPage = () => {
             Artisan Tiramisù
           </h2>
           <p className="text-foreground/70 text-center mb-6 text-sm">
-            Handcrafted with love, each a divine experience — <span className="font-semibold">$14.90</span>
+            Handcrafted with love, each a divine experience
           </p>
           <div className="space-y-3">
             {dolciMenu.map((item) => (
               <div key={item.name} className="bg-card/50 rounded-xl p-4 border border-border/30">
-                <div className="flex items-start gap-2 mb-1">
-                  <h3 className="font-serif text-lg font-semibold text-foreground">
+                <div className="flex justify-between items-start gap-4 mb-1">
+                  <h4 className="font-serif text-lg font-semibold text-foreground">
                     {item.name}
-                  </h3>
-                  {item.isGlutenFree && (
-                    <span className="text-xs font-semibold bg-foreground/15 text-foreground px-2 py-0.5 rounded-full mt-1 whitespace-nowrap">GF</span>
-                  )}
-                  {item.isSpecial && (
-                    <span className="text-xs font-semibold bg-accent text-accent-foreground px-2 py-0.5 rounded-full mt-1 whitespace-nowrap">SPECIAL</span>
-                  )}
+                    {item.isGlutenFree && (
+                      <span className="ml-2 text-sm font-sans font-normal text-foreground/60">(GF)</span>
+                    )}
+                    {item.isSpecial && (
+                      <span className="ml-2 text-xs font-sans font-semibold bg-accent text-accent-foreground px-2 py-0.5 rounded-full">SPECIAL</span>
+                    )}
+                  </h4>
+                  <span className="font-semibold text-foreground whitespace-nowrap">
+                    ${item.price.toFixed(2)}
+                  </span>
                 </div>
                 <p className="text-foreground/75 text-sm leading-relaxed">
                   {item.description}
