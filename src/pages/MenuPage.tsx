@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { pizzaMenu, dolciMenu, type MenuItem, type MenuCategory } from "@/data/menu";
-import { Badge } from "@/components/ui/badge";
+import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, type MenuItem, type MenuCategory } from "@/data/menu";
 import pizzaIcon from "@/assets/pizza-icon.png";
 import dessertIcon from "@/assets/dessert-icon.png";
 
@@ -43,19 +42,49 @@ const MenuPage = () => {
 
       {/* Pizza Menu */}
       {activeCategory === "pizza" && (
-        <div className="space-y-8 max-w-2xl mx-auto animate-fade-in">
-          {pizzaMenu.map((category) => (
-            <div key={category.name}>
-              <h2 className="font-serif text-2xl font-semibold text-foreground mb-4 border-b border-border/50 pb-2">
-                {category.name}
-              </h2>
-              <div className="space-y-4">
-                {category.items.map((item) => (
-                  <MenuItemCard key={item.name} item={item} />
-                ))}
-              </div>
+        <div className="max-w-2xl mx-auto animate-fade-in">
+          {/* Header */}
+          <h2 className="font-serif text-2xl font-semibold text-foreground text-center mb-6">
+            Roman-Style Sliced Pizza
+          </h2>
+
+          {/* Pizza Boxes */}
+          <div className="mb-8">
+            <h3 className="font-serif text-xl font-semibold text-foreground mb-3 text-center">Pizza Boxes</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {pizzaBoxes.map((box) => (
+                <div key={box.name} className="bg-card/50 rounded-xl p-4 border border-border/30 text-center">
+                  <h4 className="font-serif text-lg font-semibold text-foreground">{box.name}</h4>
+                  <p className="text-foreground/70 text-sm">{box.description}</p>
+                  <p className="font-semibold text-foreground mt-1">${box.price.toFixed(2)}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Slice Categories */}
+          <div className="space-y-8">
+            {pizzaMenu.map((category) => (
+              <div key={category.name}>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-1 border-b border-border/50 pb-2">
+                  {category.name}
+                </h3>
+                {category.description && (
+                  <p className="text-foreground/60 text-sm mb-3">{category.description}</p>
+                )}
+                <div className="space-y-3">
+                  {category.items.map((item) => (
+                    <PizzaItemCard key={item.name} item={item} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Pizza Note */}
+          <div className="mt-8 bg-card/30 rounded-xl p-4 border border-border/20">
+            <p className="text-foreground/70 text-xs leading-relaxed italic">{pizzaNote}</p>
+          </div>
         </div>
       )}
 
@@ -79,13 +108,18 @@ const MenuPage = () => {
   );
 };
 
-const MenuItemCard = ({ item }: { item: MenuItem }) => {
+const PizzaItemCard = ({ item }: { item: MenuItem }) => {
+  const dietLabel = item.isVegan ? "Vg" : item.isVegetarian ? "V" : null;
+
   return (
     <div className="bg-card/50 rounded-xl p-4 border border-border/30">
-      <div className="flex justify-between items-start gap-4 mb-2">
-        <h3 className="font-serif text-xl font-semibold text-foreground">
+      <div className="flex justify-between items-start gap-4 mb-1">
+        <h4 className="font-serif text-lg font-semibold text-foreground">
           {item.name}
-        </h3>
+          {dietLabel && (
+            <span className="ml-2 text-sm font-sans font-normal text-foreground/60">({dietLabel})</span>
+          )}
+        </h4>
         <span className="font-semibold text-foreground whitespace-nowrap">
           ${item.price.toFixed(2)}
         </span>
