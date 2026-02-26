@@ -91,15 +91,30 @@ const MenuPage = () => {
       {/* Dolci Menu */}
       {activeCategory === "dolci" && (
         <div className="max-w-2xl mx-auto animate-fade-in">
-          <h2 className="font-serif text-2xl font-semibold text-foreground mb-4 text-center">
+          <h2 className="font-serif text-2xl font-semibold text-foreground mb-2 text-center">
             Artisan Tiramisù
           </h2>
           <p className="text-foreground/70 text-center mb-6 text-sm">
-            Handcrafted with love, each a divine experience
+            Handcrafted with love, each a divine experience — <span className="font-semibold">$14.90</span>
           </p>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {dolciMenu.map((item) => (
-              <DolciItemCard key={item.name} item={item} />
+              <div key={item.name} className="bg-card/50 rounded-xl p-4 border border-border/30">
+                <div className="flex items-start gap-2 mb-1">
+                  <h3 className="font-serif text-lg font-semibold text-foreground">
+                    {item.name}
+                  </h3>
+                  {item.isGlutenFree && (
+                    <span className="text-xs font-semibold bg-foreground/15 text-foreground px-2 py-0.5 rounded-full mt-1 whitespace-nowrap">GF</span>
+                  )}
+                  {item.isSpecial && (
+                    <span className="text-xs font-semibold bg-accent text-accent-foreground px-2 py-0.5 rounded-full mt-1 whitespace-nowrap">SPECIAL</span>
+                  )}
+                </div>
+                <p className="text-foreground/75 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
