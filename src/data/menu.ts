@@ -116,6 +116,39 @@ export const partyTrays: PartyTray[] = [
   { title: "5+ Trays (Promo!)", description: "Order 5 or more trays and receive 10% off your entire tray order. Choose up to 5 different types of pizza.", isPromo: true },
 ];
 
+export interface DrinkItem {
+  name: string;
+  price: number;
+  priceAlt?: number; // for glass/bottle pricing
+}
+
+export interface DrinkCategory {
+  name: string;
+  items: DrinkItem[];
+}
+
+export const drinksMenu: DrinkCategory[] = [
+  {
+    name: "Italian Beer & Wine",
+    items: [
+      { name: "Menabrea Premium Beer", price: 11.90 },
+      { name: "White Wine", price: 13.50, priceAlt: 49 },
+      { name: "Red Wine", price: 13.50, priceAlt: 49 },
+      { name: "Prosecco", price: 45 },
+      { name: "Rosé", price: 59 },
+    ],
+  },
+  {
+    name: "Non-Alcoholic",
+    items: [
+      { name: "Coke / Coke Zero", price: 3.50 },
+      { name: "Sanpellegrino Sparkling Drink", price: 4 },
+      { name: "Zuegg Italian Juice", price: 4 },
+      { name: "Italian Sparkling / Natural Water", price: 3.50 },
+    ],
+  },
+];
+
 export const partyExtras: ExtraItem[] = [
   { name: "Tagliere", price: 10.00 },
   { name: "Italian Salad", price: 8.00 },
