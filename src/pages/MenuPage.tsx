@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, type MenuItem, type MenuCategory } from "@/data/menu";
+import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, partyTrays, partyExtras, type MenuItem, type MenuCategory } from "@/data/menu";
 import pizzaIcon from "@/assets/pizza-icon.png";
 import dessertIcon from "@/assets/dessert-icon.png";
+import charcuterieIcon from "@/assets/charcuterie-icon.png";
 
 const MenuPage = () => {
-  const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci">("pizza");
+  const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci" | "party">("pizza");
 
   return (
     <div className="min-h-screen px-4 py-6">
@@ -37,6 +38,17 @@ const MenuPage = () => {
         >
           <img src={dessertIcon} alt="Dessert" className="w-10 h-10 aspect-square object-contain rounded-full" />
           Dessert
+        </button>
+        <button
+          onClick={() => setActiveCategory("party")}
+          className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
+            activeCategory === "party"
+              ? "bg-foreground text-background"
+              : "bg-card text-foreground border border-border hover:bg-card/80"
+          }`}
+        >
+          <img src={charcuterieIcon} alt="Party Trays" className="w-10 h-10 aspect-square object-contain rounded-full" />
+          Party Trays
         </button>
       </div>
 
@@ -117,6 +129,53 @@ const MenuPage = () => {
                 <p className="text-foreground/75 text-sm leading-relaxed">
                   {item.description}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Party Trays Menu */}
+      {activeCategory === "party" && (
+        <div className="max-w-3xl mx-auto animate-fade-in">
+          {/* Header */}
+          <h2 className="font-serif text-2xl font-semibold text-foreground text-center mb-1">
+            Party Trays
+          </h2>
+          <p className="text-foreground/70 text-center mb-8 text-sm">
+            1 Tray serves 5 people (10 slices total, 2 slices each)
+          </p>
+
+          {/* Tray Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            {partyTrays.map((tray) => (
+              <div
+                key={tray.title}
+                className={`bg-card/50 rounded-xl p-6 border transition-all ${
+                  tray.isPromo
+                    ? "border-foreground/60 ring-1 ring-foreground/30"
+                    : "border-border/30"
+                }`}
+              >
+                <h4 className={`font-serif text-xl font-bold text-foreground mb-2 ${tray.isPromo ? "italic" : ""}`}>
+                  {tray.title}
+                </h4>
+                <p className="text-foreground/75 text-sm leading-relaxed">
+                  {tray.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Extras & Add-ons */}
+          <h3 className="font-serif text-xl font-semibold text-foreground text-center mb-4 border-b border-border/50 pb-2">
+            Extras & Add-ons
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {partyExtras.map((extra) => (
+              <div key={extra.name} className="bg-card/50 rounded-xl px-5 py-3 border border-border/30 flex justify-between items-center">
+                <span className="font-serif text-lg font-semibold text-foreground">{extra.name}</span>
+                <span className="font-semibold text-foreground whitespace-nowrap">${extra.price.toFixed(2)}</span>
               </div>
             ))}
           </div>
