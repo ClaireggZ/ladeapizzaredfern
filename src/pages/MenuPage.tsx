@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, type MenuItem, type MenuCategory } from "@/data/menu";
+import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, partyTrays, partyExtras, type MenuItem, type MenuCategory } from "@/data/menu";
 import pizzaIcon from "@/assets/pizza-icon.png";
 import dessertIcon from "@/assets/dessert-icon.png";
+import charcuterieIcon from "@/assets/charcuterie-icon.png";
 
 const MenuPage = () => {
   const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci">("pizza");

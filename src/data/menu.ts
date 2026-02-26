@@ -98,6 +98,30 @@ export const dolciMenu: MenuItem[] = [
   { name: "Tiramisù Matcha Strawberry", price: 14.90, description: "Strawberry-dipped ladyfingers, matcha mascarpone, fresh strawberries, matcha dust.", isGlutenFree: true },
 ];
 
+export interface PartyTray {
+  title: string;
+  description: string;
+  isPromo?: boolean;
+}
+
+export interface ExtraItem {
+  name: string;
+  price: number;
+}
+
+export const partyTrays: PartyTray[] = [
+  { title: "1 Tray", description: "Choose up to 2 different types of pizza." },
+  { title: "2 Trays", description: "Choose up to 4 different types of pizza." },
+  { title: "3 to 4 Trays", description: "Choose up to 5 different types of pizza." },
+  { title: "5+ Trays (Promo!)", description: "Order 5 or more trays and receive 10% off your entire tray order. Choose up to 5 different types of pizza.", isPromo: true },
+];
+
+export const partyExtras: ExtraItem[] = [
+  { name: "Tagliere", price: 10.00 },
+  { name: "Italian Salad", price: 8.00 },
+  { name: "Artisan Tiramisù", price: 10.00 },
+];
+
 export const locations = [
   {
     name: "Redfern",
