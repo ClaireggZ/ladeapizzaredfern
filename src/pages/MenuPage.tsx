@@ -2,7 +2,7 @@ import { useState } from "react";
 import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, partyTrays, partyExtras, type MenuItem, type MenuCategory } from "@/data/menu";
 import pizzaIcon from "@/assets/pizza-icon.png";
 import dessertIcon from "@/assets/dessert-icon.png";
-import charcuterieIcon from "@/assets/charcuterie-icon.png";
+import partyTraysIcon from "@/assets/party-trays-icon.png";
 
 const MenuPage = () => {
   const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci" | "party">("pizza");
@@ -47,7 +47,7 @@ const MenuPage = () => {
               : "bg-card text-foreground border border-border hover:bg-card/80"
           }`}
         >
-          <img src={charcuterieIcon} alt="Party Trays" className="w-10 h-10 aspect-square object-contain rounded-full" />
+          <img src={partyTraysIcon} alt="Party Trays" className="w-10 h-10 aspect-square object-contain rounded-full" />
           Party Trays
         </button>
       </div>
