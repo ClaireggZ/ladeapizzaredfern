@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, partyTrays, partyExtras, type MenuItem, type MenuCategory } from "@/data/menu";
+import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, partyTrays, partyExtras, drinksMenu, type MenuItem, type MenuCategory } from "@/data/menu";
 import pizzaIcon from "@/assets/pizza-icon.png";
 import dessertIcon from "@/assets/dessert-icon.png";
 import partyTraysIcon from "@/assets/party-trays-icon.png";
+import drinksIcon from "@/assets/drinks-icon.png";
 
 const MenuPage = () => {
-  const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci" | "party">("pizza");
+  const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci" | "party" | "drinks">("pizza");
 
   return (
     <div className="min-h-screen px-4 py-6">
