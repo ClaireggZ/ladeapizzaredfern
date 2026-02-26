@@ -5,7 +5,7 @@ import dessertIcon from "@/assets/dessert-icon.png";
 import charcuterieIcon from "@/assets/charcuterie-icon.png";
 
 const MenuPage = () => {
-  const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci">("pizza");
+  const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci" | "party">("pizza");
 
   return (
     <div className="min-h-screen px-4 py-6">
