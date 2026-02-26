@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, partyTrays, partyExtras, type MenuItem, type MenuCategory } from "@/data/menu";
+import { pizzaMenu, pizzaBoxes, pizzaNote, dolciMenu, partyTrays, partyExtras, drinksMenu, type MenuItem, type MenuCategory } from "@/data/menu";
 import pizzaIcon from "@/assets/pizza-icon.png";
 import dessertIcon from "@/assets/dessert-icon.png";
 import partyTraysIcon from "@/assets/party-trays-icon.png";
+import drinksIcon from "@/assets/drinks-icon.png";
 
 const MenuPage = () => {
-  const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci" | "party">("pizza");
+  const [activeCategory, setActiveCategory] = useState<"pizza" | "dolci" | "party" | "drinks">("pizza");
 
   return (
     <div className="min-h-screen px-4 py-6">
@@ -49,6 +50,17 @@ const MenuPage = () => {
         >
           <img src={partyTraysIcon} alt="Party Trays" className="w-10 h-10 aspect-square object-contain rounded-full" />
           Party Trays
+        </button>
+        <button
+          onClick={() => setActiveCategory("drinks")}
+          className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
+            activeCategory === "drinks"
+              ? "bg-foreground text-background"
+              : "bg-card text-foreground border border-border hover:bg-card/80"
+          }`}
+        >
+          <img src={drinksIcon} alt="Drinks" className="w-10 h-10 aspect-square object-contain rounded-full" />
+          Drinks
         </button>
       </div>
 
@@ -176,6 +188,36 @@ const MenuPage = () => {
               <div key={extra.name} className="bg-card/50 rounded-xl px-5 py-3 border border-border/30 flex justify-between items-center">
                 <span className="font-serif text-lg font-semibold text-foreground">{extra.name}</span>
                 <span className="font-semibold text-foreground whitespace-nowrap">${extra.price.toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Drinks Menu */}
+      {activeCategory === "drinks" && (
+        <div className="max-w-2xl mx-auto animate-fade-in">
+          <h2 className="font-serif text-2xl font-semibold text-foreground text-center mb-6">
+            Drinks
+          </h2>
+          <div className="space-y-8">
+            {drinksMenu.map((category) => (
+              <div key={category.name}>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-3 border-b border-border/50 pb-2">
+                  {category.name}
+                </h3>
+                <div className="space-y-3">
+                  {category.items.map((item) => (
+                    <div key={item.name} className="bg-card/50 rounded-xl p-4 border border-border/30 flex justify-between items-center">
+                      <span className="font-serif text-lg font-semibold text-foreground">{item.name}</span>
+                      <span className="font-semibold text-foreground whitespace-nowrap">
+                        {item.priceAlt
+                          ? `$${item.price.toFixed(2)} / $${item.priceAlt.toFixed(2)}`
+                          : `$${item.price.toFixed(2)}`}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
