@@ -90,12 +90,12 @@ export const pizzaMenu: MenuCategory[] = [
 export const pizzaNote = "Vegan option (VO) available on selected pizzas. Gluten-free + $2/slice. Note: Cross-contamination may occur due to shared equipment.";
 
 export const dolciMenu: MenuItem[] = [
-  { name: "Tiramisù Classico", price: 15.90, description: "Lavazza espresso-dipped ladyfingers, mascarpone, cocoa powder.", isGlutenFree: true, isRecommended: true },
-  { name: "Tiramisù CoccoBello", price: 15.90, description: "Hazelnut-dipped ladyfingers, coconut mascarpone, white chocolate, shredded coconut.", isGlutenFree: true, isSpecial: true },
-  { name: "Tiramisù ChocoNocciola", price: 15.90, description: "Cocoa-infused ladyfingers, hazelnut mascarpone, Nutella drizzle, roasted hazelnuts.", isGlutenFree: true },
-  { name: "Tiramisù Biscoff Oro", price: 15.90, description: "Lavazza espresso-dipped ladyfingers, Biscoff mascarpone, salted caramel." },
-  { name: "Tiramisù Pistacchio Verde", price: 15.90, description: "Pistachio-dipped ladyfingers, mascarpone, pistachio crunch & drizzle.", isGlutenFree: true, isRecommended: true },
-  { name: "Tiramisù Matcha Strawberry", price: 15.90, description: "Strawberry-dipped ladyfingers, matcha mascarpone, fresh strawberries, matcha dust.", isGlutenFree: true },
+  { name: "Tiramisù Classico", price: 14.90, description: "Lavazza espresso-dipped ladyfingers, mascarpone, cocoa powder.", isGlutenFree: true },
+  { name: "Tiramisù CoccoBello", price: 14.90, description: "Hazelnut-dipped ladyfingers, coconut mascarpone, white chocolate, shredded coconut.", isGlutenFree: true, isSpecial: true },
+  { name: "Tiramisù ChocoNocciola", price: 14.90, description: "Cocoa-infused ladyfingers, hazelnut mascarpone, Nutella drizzle, roasted hazelnuts.", isGlutenFree: true },
+  { name: "Tiramisù Biscoff Oro", price: 14.90, description: "Lavazza espresso-dipped ladyfingers, Biscoff mascarpone, salted caramel." },
+  { name: "Tiramisù Pistacchio Verde", price: 14.90, description: "Pistachio-dipped ladyfingers, mascarpone, pistachio crunch & drizzle.", isGlutenFree: true },
+  { name: "Tiramisù Matcha Strawberry", price: 14.90, description: "Strawberry-dipped ladyfingers, matcha mascarpone, fresh strawberries, matcha dust.", isGlutenFree: true },
 ];
 
 export const locations = [
