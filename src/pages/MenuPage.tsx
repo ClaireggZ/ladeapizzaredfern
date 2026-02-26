@@ -51,6 +51,17 @@ const MenuPage = () => {
           <img src={partyTraysIcon} alt="Party Trays" className="w-10 h-10 aspect-square object-contain rounded-full" />
           Party Trays
         </button>
+        <button
+          onClick={() => setActiveCategory("drinks")}
+          className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
+            activeCategory === "drinks"
+              ? "bg-foreground text-background"
+              : "bg-card text-foreground border border-border hover:bg-card/80"
+          }`}
+        >
+          <img src={drinksIcon} alt="Drinks" className="w-10 h-10 aspect-square object-contain rounded-full" />
+          Drinks
+        </button>
       </div>
 
       {/* Pizza Menu */}
