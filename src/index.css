@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LA DEA Pizza & Dolci - Roman Goddess Design System */
+
+@layer base {
+  :root {
+    /* Vibrant Red Theme - Bold Italian Heritage */
+    --background: 359 90% 46%; /* #DE0C10 - Vibrant Red */
+    --foreground: 0 0% 100%; /* Pure White */
+
+    --card: 359 90% 39%; /* Darker red for cards */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 359 91% 38%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%; /* White as primary for buttons on red */
+    --primary-foreground: 359 90% 46%;
+
+    --secondary: 359 90% 53%; /* Lighter red */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 359 70% 35%;
+    --muted-foreground: 0 0% 85%;
+
+    --accent: 42 87% 55%; /* Gold accent */
+    --accent-foreground: 359 90% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 359 70% 55%;
+    --input: 359 70% 55%;
+    --ring: 0 0% 100%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gold: 42 87% 55%;
+    --cream: 40 33% 95%;
+  }
+
+  .dark {
+    --background: 359 90% 46%;
+    --foreground: 0 0% 100%;
+    --card: 359 90% 39%;
+    --card-foreground: 0 0% 100%;
+    --popover: 359 90% 39%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 359 90% 46%;
+    --secondary: 359 90% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 359 70% 35%;
+    --muted-foreground: 0 0% 85%;
+    --accent: 42 87% 55%;
+    --accent-foreground: 359 90% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 359 70% 55%;
+    --input: 359 70% 55%;
+    --ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Lato', sans-serif;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+}
